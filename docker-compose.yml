@@ -1,0 +1,19 @@
+---
+version: '3.2'
+services:
+  redis-master:
+    build:
+      context: redis/
+      args:
+        REDIS_VERSION: 4.0.12
+    restart: always
+    container_name: "redis"
+    environment:
+      - TZ=Asia/Taipei
+      
+    volumes:
+    - redis-data:/data
+    ports:
+    - 6379:6379
+volumes:
+  redis-data: 
